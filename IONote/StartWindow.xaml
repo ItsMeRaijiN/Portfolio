@@ -1,0 +1,86 @@
+﻿<Window x:Class="IoNote.NotePages.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IoNote.AuthorizationPages"
+        mc:Ignorable="d"
+        Title="Io Note - Strona startowa"
+        Height="450"
+        Width="800"
+        ResizeMode="CanResize"
+        WindowStartupLocation="CenterScreen"
+        Background="#F7F7F7">
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                  VerticalScrollBarVisibility="Auto">
+        <Viewbox Stretch="Uniform" StretchDirection="Both">
+            <!-- Bazowy Grid -->
+            <Grid Width="800" Height="450">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Lewy panel -->
+                <StackPanel Grid.Column="0" Margin="20" Background="#ECF2FA">
+                    <TextBlock x:Name="usernameLabel" 
+                               Text="Hello, " 
+                               FontSize="12" 
+                               Margin="20" 
+                               HorizontalAlignment="Center" />
+                    <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10">
+                        <Button x:Name="LogOutButton" Content="Log out" Width="140" Margin="5" Click="LogOutButton_Click" />
+                        <Button x:Name="DeleteAccountButton" Content="Delete account" Width="140" Margin="5" Click="DeleteAccountButton_Click" />
+                        <Button x:Name="ChangePasswordButton" Content="Change password" Width="140" Margin="5" Click="ChangePasswordButton_Click" />
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Środkowy panel -->
+                <Grid Grid.Column="1" Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="CurrentFolderLabel" 
+                               Grid.Row="0" 
+                               FontSize="12" 
+                               Text="Root" 
+                               FontWeight="Bold" 
+                               Margin="0,0,0,10" />
+                    <ScrollViewer Grid.Row="1" 
+                                  VerticalScrollBarVisibility="Auto" 
+                                  HorizontalScrollBarVisibility="Disabled">
+                        <ListBox x:Name="FoldersListBox"
+                                 Margin="0"
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Stretch"
+                                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                 SelectionChanged="FoldersListBox_SelectionChanged"
+                                 SelectionMode="Single">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Emoji}" FontSize="16" Margin="0,0,5,0" />
+                                        <TextBlock Text="{Binding Name}" FontSize="16" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+                </Grid>
+
+                <!-- Prawy panel -->
+                <StackPanel Grid.Column="2" Margin="20,40,20,20" VerticalAlignment="Top">
+                    <Button x:Name="AddFolderButton" Content="Add folder" Width="80" Margin="5" Click="AddFolderButton_Click" />
+                    <Button x:Name="DeleteFolderButton" Content="Delete folder" Width="80" Margin="5" Click="DeleteFolderButton_Click" />
+                    <Button x:Name="AddNoteButton" Content="Add note" Width="80" Margin="5" Click="AddNoteButton_Click" />
+                    <Button x:Name="ImportNoteButton" Content="Import note" Width="80" Margin="5" Click="ImportNoteButton_Click" />
+                    <Button x:Name="DeleteNoteButton" Content="Delete note" Width="80" Margin="5" Click="DeleteNoteButton_Click" />
+                    <Button x:Name="PasteNoteButton" Content="Paste note" Width="80" Margin="5" Click="PasteNoteButton_Click" />
+                </StackPanel>
+            </Grid>
+        </Viewbox>
+    </ScrollViewer>
+</Window>

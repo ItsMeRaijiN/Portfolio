@@ -1,0 +1,16 @@
+; ****************************************************************************
+;  Projekt: JaProjIP
+;  Plik: JaAsm.def
+;  Semestr/Rok akademicki: Zimowy 2024/2025
+;  Autor: Igor Potoczny
+;  Wersja: 1.0
+;  Historia zmian:
+;      - v1.0: Utworzenie pliku definicji eksportu funkcji ASM
+;  Opis pliku:
+;      Plik definicyjny DLL zawieraj¹cy eksport funkcji "ApplyFilter"
+;      dla biblioteki JaAsm.dll.
+; ****************************************************************************
+
+LIBRARY JaAsm
+EXPORTS
+    ApplyFilter

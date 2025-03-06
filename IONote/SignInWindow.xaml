@@ -1,0 +1,121 @@
+﻿<Window x:Class="IoNote.AuthorizationPages.SignInWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="IoNote - Logowanie"
+        Height="450"
+        Width="800"
+        ResizeMode="CanResize"
+        Background="#F7F7F7"
+        WindowStartupLocation="CenterScreen">
+
+    <Viewbox Stretch="Uniform" StretchDirection="Both">
+        <Grid Width="800" Height="450" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Tytuł  -->
+            <TextBlock x:Name="AppLabel"
+                       Text="IoNote"
+                       FontSize="36"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Margin="0,0,0,20" />
+
+            <!-- Sekcja logowania  -->
+            <StackPanel Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <!-- Nazwa użytkownika -->
+                <Label x:Name="UsernameLabel"
+                       Content="Nazwa użytkownika"
+                       Margin="0,0,0,5"
+                       HorizontalAlignment="Center"/>
+                <TextBox x:Name="UsernameTextBox"
+                         Height="30"
+                         Padding="5"
+                         Margin="0,0,0,10"/>
+
+                <!-- Hasło -->
+                <Label x:Name="PasswordLabel"
+                       Content="Hasło"
+                       Margin="0,0,0,5"
+                       HorizontalAlignment="Center"/>
+                <PasswordBox x:Name="PasswordBox"
+                             Height="30"
+                             Padding="5"/>
+                <TextBox x:Name="PasswordTextBox"
+                         Height="30"
+                         Padding="5"
+                         Visibility="Collapsed"/>
+
+                <!-- CheckBox "Pokaż hasło" -->
+                <CheckBox x:Name="ShowPasswordCheckBox"
+                          Content="Pokaż hasło"
+                          Margin="0,10,0,0"
+                          HorizontalAlignment="Left"
+                          Checked="ShowPassword_Checked"
+                          Unchecked="ShowPassword_Unchecked"/>
+            </StackPanel>
+
+            <!-- Etykieta błędu nad "Zaloguj"  -->
+            <Label x:Name="ErrorLabel"
+                   Content="Niepoprawne login/hasło"
+                   Foreground="Red"
+                   FontSize="14"
+                   HorizontalAlignment="Center"
+                   Visibility="Collapsed"
+                   Grid.Row="2"
+                   Grid.Column="1"
+                   Margin="0,10,0,10"/>
+
+            <!-- Przycisk "Zaloguj"  -->
+            <Button x:Name="SignInButton"
+                    Content="Zaloguj"
+                    Width="100"
+                    Height="30"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Center"
+                    Click="SignInButton_Click" />
+
+            <!-- Przycisk "Zarejestruj"  -->
+            <Button x:Name="SignUpButton"
+                    Content="Zarejestruj"
+                    Width="100"
+                    Height="30"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Center"
+                    Click="SignUpButton_Click"/>
+
+            <!-- Przycisk "Przypomnij hasło"  -->
+            <Button x:Name="RemindPasswordButton"
+                    Content="Przypomnij hasło"
+                    Width="150"
+                    Height="30"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Center"
+                    Click="RemindPasswordButton_Click" />
+
+        </Grid>
+    </Viewbox>
+</Window>
